@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a Car | Professional Car Rental Karachi</title>
+    <!-- Google Fonts for Clean Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern Minimalist Reset & Variables */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --text-main: #1a1a1a;
+            --text-muted: #6c757d;
+            --accent-gold: #d4af37;
+            --accent-gold-hover: #b89327;
+            --dark-charcoal: #121212;
+            --border-color: #e9ecef;
+            --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --admin-color: #dc3545;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--dark-charcoal);
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-phone {
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-phone:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Admin Lock Button styling */
+        .admin-lock-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .admin-lock-btn:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Admin Notification Bar */
+        .admin-bar {
+            background-color: var(--admin-color);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .admin-bar button {
+            background: white;
+            color: var(--admin-color);
+            border: none;
+            padding: 2px 10px;
+            margin-left: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 80px 0;
+            background-color: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+        }
+
+        .hero h2 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--dark-charcoal);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 35px auto;
+            font-weight: 300;
+        }
+
+        /* Interactive Buttons */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            border: 1px solid transparent;
+        }
+
+        .btn-gold {
+            background-color: var(--dark-charcoal);
+            color: #ffffff;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-charcoal);
+        }
+
+        .btn-outline {
+            border-color: var(--dark-charcoal);
+            color: var(--dark-charcoal);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--dark-charcoal);
+            color: #ffffff;
+        }
+
+        /* Services Grid Section */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--dark-charcoal);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Center a single service card to keep it clean */
+        .single-service-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+
+        .service-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-charcoal);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Fleet Section */
+        .fleet-section {
+            background-color: var(--bg-secondary);
+        }
+
+        /* Admin Vehicle Creator Panel */
+        .admin-panel-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--admin-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            display: none;
+        }
+
+        .admin-panel-card h4 {
+            color: var(--admin-color);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .btn-admin-submit {
+            background-color: var(--admin-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: var(--font-stack);
+            font-size: 0.9rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn-admin-submit:hover {
+            opacity: 0.9;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .fleet-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .fleet-table th, .fleet-table td {
+            padding: 18px 24px;
+        }
+
+        .fleet-table th {
+            background-color: var(--dark-charcoal);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .fleet-table tr {
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.2s ease;
+        }
+
+        .fleet-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .fleet-table tr:hover {
+            background-color: #fafafa;
+        }
+
+        /* Delete action column for Admin Panel */
+        .delete-btn {
+            background: none;
+            border: none;
+            color: var(--admin-color);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .delete-col {
+            display: none;
+        }
+
+        /* Contact Details Section */
+        .contact-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .contact-details {
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .contact-item span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item p, .contact-item a {
+            font-size: 1.1rem;
+            color: var(--dark-charcoal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-charcoal);
+            color: #888888;
+            padding: 40px 0;
+            font-size: 0.85rem;
+            text-align: center;
+            border-top: 1px solid #222222;
+        }
+
+        /* Minimal Login Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 2000;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-box {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--dark-charcoal);
+        }
+
+        .modal-box h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--dark-charcoal);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: var(--font-stack);
+            font-size: 0.95rem;
+            color: var(--dark-charcoal);
+            background-color: var(--bg-secondary);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background-color: var(--bg-primary);
+        }
+
+        .modal-submit-btn {
+            width: 100%;
+            background-color: var(--dark-charcoal);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-family: var(--font-stack);
+            transition: background-color 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .modal-submit-btn:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-charcoal);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 70px 0 50px 0;
+            }
+            .contact-box {
+                padding: 30px 20px;
+            }
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Admin Status Banner (Initially Hidden) -->
+    <div class="admin-bar" id="adminBar">
+        Admin Mode is Active <button id="logoutBtn">Log Out</button>
+    </div>
+
+    <!-- Header / Nav -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                RENT A CAR
+            </div>
+            <div class="nav-right">
+                <a href="tel:+923128660318" class="nav-phone">+92 312 8660318</a>
+                <!-- Admin Lock Button -->
+                <button class="admin-lock-btn" id="lockBtn" aria-label="Admin Login">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Showcase -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-badge">Premier Services</span>
+            <h2>Your Premium Journey Starts Here</h2>
+            <p>Reliable, affordable, and highly professional car rental solutions customized for your needs across Karachi.</p>
+            <div class="btn-group">
+                <a href="tel:+923128660318" class="btn btn-gold">Call Now</a>
+                <a href="https://wa.me/923128660318" target="_blank" class="btn btn-outline">WhatsApp Chat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h3>Our Fleet Services</h3>
+                <p>Designed around safety, reliability, and convenience.</p>
+            </div>
+            <div class="single-service-container">
+                <div class="service-card">
+                    <h4>Daily Rentals</h4>
+                    <p>Rent a clean, fully-serviced, and highly maintained sedan or hatchback for daily chores, work, or family outings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Available Fleet Section -->
+    <section class="section-padding fleet-section">
+        <div class="container">
+            <div class="section-header">
+                <h3>Our Fleet & Rates</h3>
+                <p>Find the vehicle category that fits your travel style best.</p>
+            </div>
+
+            <!-- Dynamic Admin Panel: Form to Add Vehicles -->
+            <div class="admin-panel-card" id="adminPanel">
+                <h4>Add New Fleet Vehicle</h4>
+                <form id="addVehicleForm">
+                    <div class="form-row">
+                        <div>
+                            <label class="form-group" style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-bottom: 5px; display: block; color: var(--text-muted);">Vehicle Category</label>
+                            <input type="text" id="addCategory" class="form-control" placeholder="e.g. Economy & Hatchbacks, Sedans" required>
+                        </div>
+                        <div>
+                            <label class="form-group" style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-bottom: 5px; display: block; color: var(--text-muted);">Available Models</label>
+                            <input type="text" id="addModels" class="form-control" placeholder="e.g. Suzuki Alto, Honda Civic" required>
+                        </div>
+                        <div>
+                            <label class="form-group" style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-bottom: 5px; display: block; color: var(--text-muted);">Rate (Per Day)</label>
+                            <input type="text" id="addRate" class="form-control" placeholder="e.g. Competitive Rates, 5000 PKR" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-admin-submit">Publish Vehicle</button>
+                </form>
+            </div>
+
+            <!-- Fleet Table -->
+            <div class="table-container">
+                <table class="fleet-table" id="fleetTable">
+                    <thead>
+                        <tr>
+                            <th>Vehicle Category</th>
+                            <th>Available Models</th>
+                            <th>Rate (Per Day)</th>
+                            <th class="delete-col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Economy & Hatchbacks</strong></td>
+                            <td>Suzuki Alto, WagonR, Cultus</td>
+                            <td>Best Local Rates</td>
+                            <td class="delete-col"><button class="delete-btn">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sedans</strong></td>
+                            <td>Toyota Corolla, Honda Civic, Honda City</td>
+                            <td>Competitive Rates</td>
+                            <td class="delete-col"><button class="delete-btn">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>SUVs & luxury</strong></td>
+                            <td>Toyota Fortuner, Land Cruiser Prado</td>
+                            <td>Available on Request</td>
+                            <td class="delete-col"><button class="delete-btn">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Box -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="contact-box">
+                <div class="section-header" style="margin-bottom: 30px;">
+                    <h3>Contact Information</h3>
+                    <p>Ready to book? Reach out to us directly.</p>
+                </div>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span>Company Name</span>
+                        <p>Rent a Car</p>
+                    </div>
+                    <div class="contact-item">
+                        <span>Physical Address</span>
+                        <p>Shah Faisal Colony, Karachi, Pakistan</p>
+                    </div>
+                    <div class="contact-item">
+                        <span>Phone / Booking Hotline</span>
+                        <a href="tel:+923128660318">+92 312 8660318</a>
+                    </div>
+                </div>
+                <a href="https://wa.me/923128660318" target="_blank" class="btn btn-gold" style="display: block; width: 100%;">Message on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Rent a Car. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Simple Lock Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h3>Admin Log In</h3>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" placeholder="admin" required autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="modal-submit-btn">Access Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script to handle Admin verification, Dynamic Addition & Deletion of Fleet Rows -->
+    <script>
+        const lockBtn = document.getElementById('lockBtn');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.getElementById('closeModal');
+        const loginForm = document.getElementById('loginForm');
+        
+        // Admin UI Elements
+        const adminBar = document.getElementById('adminBar');
+        const adminPanel = document.getElementById('adminPanel');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const addVehicleForm = document.getElementById('addVehicleForm');
+        const fleetTable = document.getElementById('fleetTable');
+
+        // State to check if admin is active
+        let isAdminActive = false;
+
+        // Open Login Modal
+        lockBtn.addEventListener('click', () => {
+            if (isAdminActive) {
+                alert('You are already logged in as Admin.');
+                return;
+            }
+            loginModal.classList.add('active');
+            document.getElementById('username').focus();
+        });
+
+        // Close Login Modal
+        closeModal.addEventListener('click', () => {
+            loginModal.classList.remove('active');
+            loginForm.reset();
+        });
+
+        // Close Login Modal when clicking outside the box
+        loginModal.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.classList.remove('active');
+                loginForm.reset();
+            }
+        });
+
+        // Verify Login credentials
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const userVal = document.getElementById('username').value.trim();
+            const passVal = document.getElementById('password').value;
+
+            if (userVal === 'admin' && passVal === 'KarachiRent2026') {
+                isAdminActive = true;
+                loginModal.classList.remove('active');
+                loginForm.reset();
+                enableAdminMode();
+            } else {
+                alert('Incorrect Username or Password.');
+            }
+        });
+
+        // Enable Admin Features
+        function enableAdminMode() {
+            adminBar.style.display = 'block';
+            adminPanel.style.display = 'block';
+            
+            // Show the delete column
+            const deleteCols = document.querySelectorAll('.delete-col');
+            deleteCols.forEach(col => col.style.display = 'table-cell');
+        }
+
+        // Disable Admin Features
+        function disableAdminMode() {
+            isAdminActive = false;
+            adminBar.style.display = 'none';
+            adminPanel.style.display = 'none';
+            
+            // Hide the delete column
+            const deleteCols = document.querySelectorAll('.delete-col');
+            deleteCols.forEach(col => col.style.display = 'none');
+        }
+
+        // Log out admin
+        logoutBtn.addEventListener('click', () => {
+            disableAdminMode();
+            alert('Logged out from Admin Mode.');
+        });
+
+        // Handle adding a vehicle, with duplicate-category check logic
+        addVehicleForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const inputCategory = document.getElementById('addCategory').value.trim();
+            const inputModels = document.getElementById('addModels').value.trim();
+            const inputRate = document.getElementById('addRate').value.trim();
+
+            const tbody = fleetTable.querySelector('tbody');
+            const rows = tbody.querySelectorAll('tr');
+            
+            let matchedRow = null;
+
+            // Search for existing categories safely
+            rows.forEach(row => {
+                const categoryCell = row.cells[0];
+                if (categoryCell) {
+                    // Extract text inside strong tag, fallback to plain text
+                    const strongTag = categoryCell.querySelector('strong');
+                    const currentCategoryText = (strongTag ? strongTag.textContent : categoryCell.textContent).trim();
+                    
+                    // Match Case Insensitive
+                    if (currentCategoryText.toLowerCase() === inputCategory.toLowerCase()) {
+                        matchedRow = row;
+                    }
+                }
+            });
+
+            if (matchedRow) {
+                // Category Exists! Append new models and update the price
+                const modelCell = matchedRow.cells[1];
+                const priceCell = matchedRow.cells[2];
+
+                // Append new vehicles clearly separated by a comma
+                if (modelCell.textContent.trim() !== '') {
+                    modelCell.textContent = modelCell.textContent.trim() + ", " + inputModels;
+                } else {
+                    modelCell.textContent = inputModels;
+                }
+
+                // Update the Daily Rate column with the newly supplied price
+                priceCell.textContent = inputRate;
+                
+                alert(`Appended to existing category: "${inputCategory}"`);
+            } else {
+                // Brand new Category! Create a completely new table row
+                const newRow = document.createElement('tr');
+
+                newRow.innerHTML = `
+                    <td><strong>${inputCategory}</strong></td>
+                    <td>${inputModels}</td>
+                    <td>${inputRate}</td>
+                    <td class="delete-col" style="display: table-cell;"><button class="delete-btn">Remove</button></td>
+                `;
+
+                tbody.appendChild(newRow);
+                
+                // Attach event listener to newly created remove button
+                newRow.querySelector('.delete-btn').addEventListener('click', function() {
+                    newRow.remove();
+                });
+                
+                alert(`Added new category: "${inputCategory}"`);
+            }
+
+            // Reset Form Fields
+            addVehicleForm.reset();
+        });
+
+        // Set up event listeners for pre-existing list rows
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const tr = e.target.closest('tr');
+                if (tr) tr.remove();
+            });
+        });
+    </script>
+
+</body>
+</html>
